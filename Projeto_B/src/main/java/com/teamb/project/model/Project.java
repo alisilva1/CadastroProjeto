@@ -3,6 +3,9 @@ package com.teamb.project.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 
 public class Project {
@@ -11,6 +14,12 @@ public class Project {
 
     //@Column referencia o atributo a coluna do banco, devemos ter o mesmo padrão
     //Unique informa se ele é unico
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
+
     @Column(name = "titulo",length = 50,unique = true)
     private String titulo;
 
@@ -22,12 +31,12 @@ public class Project {
 
 
     @JsonFormat(pattern="dd/MM/yyyy")
-    @Column(name = "nomeDaColuna")
+    @Column(name = "dataCriacao")
     private Date dataCriacao;
 
     //Inseri o padrão de data pelo Json Format
     @JsonFormat(pattern="dd/MM/yyyy")
-    @Column(name = "nomeDaColuna")
+    @Column(name = "dataTermino")
     private Date dataTermino;
 
     //Getters and Setters
