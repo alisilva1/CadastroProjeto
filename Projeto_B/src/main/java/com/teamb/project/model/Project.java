@@ -2,12 +2,11 @@ package com.teamb.project.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name="tbl_project", schema = "db_project")
 public class Project {
     //titulo, descricao, tipo (ensino, pesquisa, extensão), data de criação e termino
 
