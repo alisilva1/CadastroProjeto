@@ -1,7 +1,7 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-/target/
+./target/
 /src/main/resources/application.properties
 #Default .gitignore lines as recomended on JetBrains' GitHub at https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
 
