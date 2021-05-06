@@ -2,12 +2,11 @@ package com.teamb.project.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name="tbl_project", schema = "db_project")
 public class Project {
     //titulo, descricao, tipo (ensino, pesquisa, extensão), data de criação e termino
 
@@ -16,7 +15,7 @@ public class Project {
     //Unique informa se ele é unico
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Integer id;
 
