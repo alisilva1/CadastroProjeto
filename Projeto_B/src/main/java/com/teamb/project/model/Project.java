@@ -28,7 +28,6 @@ public class Project {
     @Column(name = "tipo",length = 10)
     private String tipo;
 
-
     @JsonFormat(pattern="dd/MM/yyyy")
     @Column(name = "dataCriacao")
     private Date dataCriacao;
@@ -41,5 +40,7 @@ public class Project {
     //Getters and Setters
     //Só declarar os Getters and Setters que forem necessários
 
-
+    public Integer getId() {
+        return id;
+    }
 }
