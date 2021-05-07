@@ -28,4 +28,7 @@ public class ProjectService implements ProjectImpService{
         return project.save(objectProject);
     }
 
+    @Override
+    public void delete(Integer id){ project.delete(project.getOne(id)); }
+
 }

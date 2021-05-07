@@ -5,8 +5,9 @@ import com.teamb.project.model.Project;
 import com.teamb.project.service.ProjectImpService;
 import com.teamb.project.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -29,5 +30,11 @@ public class ProjectController {
         modelAndView.addObject("titulo", projectImpService.findAll());
         modelAndView.addObject(new Project());
         return modelAndView;
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Integer> deletePost(@PathVariable Integer id){
+        projectImpService.delete(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
