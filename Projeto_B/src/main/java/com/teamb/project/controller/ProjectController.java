@@ -58,6 +58,10 @@ public class ProjectController {
         projectImpService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+    @PutMapping
+    public ResponseEntity update(@RequestBody Project project){
+        return new ResponseEntity<>(projectImpService.save(project), HttpStatus.OK);
+    }
 
 
 }
