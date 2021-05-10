@@ -29,12 +29,12 @@ public class Project {
     private String tipo;
 
     @JsonFormat(pattern="dd/MM/yyyy")
-    @Column(name = "dataCriacao")
+    @Column(name = "data_criacao")
     private Date dataCriacao;
 
     //Inseri o padrão de data pelo Json Format
     @JsonFormat(pattern="dd/MM/yyyy")
-    @Column(name = "dataTermino")
+    @Column(name = "data_termino")
     private Date dataTermino;
 
     //Getters and Setters
