@@ -1,7 +1,9 @@
 package com.teamb.project.controller;
 
+import com.teamb.project.dao.ProjectDAO;
 import com.teamb.project.model.Project;
 import com.teamb.project.service.ProjectImpService;
+import com.teamb.project.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,9 +48,16 @@ public class ProjectController {
 
     }
 
+    @PostMapping
+    public ResponseEntity<?> save(@RequestBody Project project){
+        return new ResponseEntity<>(projectImpService.save(project), HttpStatus.OK);
+    }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Integer> deletePost(@PathVariable Integer id){
         projectImpService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+
 }
