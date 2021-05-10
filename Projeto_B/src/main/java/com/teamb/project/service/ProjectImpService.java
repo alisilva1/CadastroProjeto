@@ -8,4 +8,5 @@ public interface ProjectImpService {
     List<Project> findAll();
     Project findById(Integer id);
     Project save(Project project);
+    void delete(Integer id);
 }
