@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.persistence.*;
 import java.util.Date;
 
+import static javax.persistence.TemporalType.DATE;
+
 @Entity
 @Table(name="tbl_project", schema = "db_project")
 public class Project {
