@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProjectService implements ProjectImpService{
@@ -19,8 +20,17 @@ public class ProjectService implements ProjectImpService{
    }
 
     @Override
+    //Atualizacao do dia 11_05 para avaliar se o objeto n foi encontrado para o metodo PUT
     public Project findById(Integer id) {
-        return project.findById(id).get();
+        Optional<Project> optional = project.findById(id);
+        Project novoProjeto = null;
+        if(optional.isPresent()){
+            novoProjeto= optional.get();
+        }
+        else{
+            throw new RuntimeException("Projeto não encontrado para id ::" + id);
+        }
+        return novoProjeto;
     }
 
     @Override

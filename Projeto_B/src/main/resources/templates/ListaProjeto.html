@@ -2,10 +2,93 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head> <meta charset="UTF-8"/> <meta name="viewport" content="width=device-width" />
     <title>Lista de Projetos</title>
+    <!--
     <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
     <link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+    -->
+    <!--CSS Import-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
 </head>
-<body>
-<h1>Hello World!</h1>
-</body>
+    <body>
+    <!--
+        <header>
+            <nav class="navbar navbar-light bg-light">
+                <div class="container-fluid">
+                    <span class="navbar-brand mb-0 h1">Projetos</span>
+                </div>
+            </nav>
+        </header>
+
+        <ul class="list-group">
+            <li class="list-group-item">An item</li>
+            <li class="list-group-item">A second item</li>
+            <li class="list-group-item">A third item</li>
+            <li class="list-group-item">A fourth item</li>
+            <li class="list-group-item">And a fifth one</li>
+        </ul>
+       -->
+
+
+        <!-- Listar -->
+        <div class="panel panel-default" style="margin: 10px">
+
+            <div class="panel-heading">
+                <h1 class="panel-title">Lista de Projetos</h1>
+            </div>
+                <!-- Form -->
+                <form class="form-inline" method="POST" th:object="${project}" style="margin: 20px 0" th:action="@{/projeto}"> <!---->
+                    <div class="form-group">
+                        <input type="text" class="form-control"
+                               placeholder="Titulo"
+                               th:field="*{titulo}"/>
+                        <input type="text" class="form-control"
+                               placeholder="Descricao"
+                               th:field="*{descricao}"/>
+                        <input type="text" class="form-control"
+                               placeholder="Tipo"
+                               th:field="*{tipo}"/>
+                        <input type="text" class="form-control"
+                               placeholder="Data de Criacao"
+                               th:field="*{dataCriacao}"/>
+                        <input type="text" class="form-control"
+                               placeholder="Data de Termino"
+                               th:field="*{dataTermino}"/>
+
+                        <button type="submit"
+                                class="btn btn-primary">Adicionar</button>
+                    </div>
+                </form>
+                <!-- Fim do Form -->
+                <!-- Inicio da Lista -->
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Titulo</th>
+                            <th>Descricao</th>
+                            <th>Tipo</th>
+                            <th>Data Criacao</th>
+                            <th>Data Termino</th>
+                            <th>Ações</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="project : ${titulo}">
+                            <td th:text="${project.titulo}"></td>
+                            <td th:text="${project.descricao}"></td>
+                            <td th:text="${project.tipo}"></td>
+                            <td th:text="${project.dataCriacao}"></td>
+                            <td th:text="${project.dataTermino}"></td>
+                            <td>
+                                <a th:href="@{/telaUpdateProjeto/{id}(id=${project.id})}" class="btn- btn-primary">Update</a>
+                                <a th:href="@{/deleteNew/{id}(id=${project.id})}" class="btn- btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Fim da Lista -->
+        </div>
+    </body>
 </html>

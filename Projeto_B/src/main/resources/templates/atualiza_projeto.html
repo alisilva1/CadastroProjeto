@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Atualização de Projetos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+</head>
+<body>
+    <div class="panel panel-default" style="margin: 10px">
+
+        <div class="container">
+            <h1 class="panel-title">Lista de Projetos</h1>
+            <hr>
+            <h2>Atualizar projeto</h2>
+            <!-- Form 2 -->
+            <!-- th:action indica o processo que vai salvar o dado /projeto post mapp -->
+                <form action ="#" th:action= "@{/projeto}" th:object="${project}" method="POST">
+
+                    <input type="hidden" th:field="*{id}"/>
+                    <input type="text" th:field="*{titulo}" class="form-control mb-4 col-4" >
+                    <input type="text" th:field="*{descricao}" class="form-control mb-4 col-4">
+                    <input type="text" th:field="*{tipo}" class="form-control mb-4 col-4">
+                    <input type="text" th:field="*{dataCriacao}" class="form-control mb-4 col-4">
+                    <input type="text" th:field="*{dataTermino}" class="form-control mb-4 col-4">
+
+                    <button type="submit" class="btn btn-info col-2"> Salvar Projeto </button>
+                </form>
+            <hr>
+            <a th:href="@{/projeto}"> Volta para lista de projetos </a>
+        </div>
+    </div>
+
+</body>
+</html>
