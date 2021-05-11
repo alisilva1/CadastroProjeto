@@ -78,8 +78,8 @@
                             <td th:text="${project.titulo}"></td>
                             <td th:text="${project.descricao}"></td>
                             <td th:text="${project.tipo}"></td>
-                            <td th:text="${project.dataCriacao}"></td>
-                            <td th:text="${project.dataTermino}"></td>
+                            <td th:text="${{project.dataCriacao}}"></td>
+                            <td th:text="${{project.dataTermino}}"></td>
                             <td>
                                 <a th:href="@{/telaUpdateProjeto/{id}(id=${project.id})}" class="btn- btn-primary">Update</a>
                                 <a th:href="@{/deleteNew/{id}(id=${project.id})}" class="btn- btn-danger">Delete</a>

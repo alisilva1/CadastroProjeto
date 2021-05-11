@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 import static javax.persistence.TemporalType.DATE;
@@ -34,14 +35,14 @@ public class Project {
     @Column(name = "tipo",length = 10)
     private String tipo;
 
-    @JsonFormat(pattern="dd/MM/yyyy")
+    //@JsonFormat(pattern="dd/MM/yyyy")
     @Column(name = "data_criacao")
-    private Date dataCriacao;
+    private LocalDate dataCriacao;
 
     //Inseri o padrão de data pelo Json Format
-    @JsonFormat(pattern="dd/MM/yyyy")
+    //@JsonFormat(pattern="dd/MM/yyyy")
     @Column(name = "data_termino")
-    private Date dataTermino;
+    private LocalDate dataTermino;
 
     //Getters and Setters
     //Só declarar os Getters and Setters que forem necessários
@@ -78,19 +79,19 @@ public class Project {
         this.tipo = tipo;
     }
 
-    public Date getDataCriacao() {
+    public LocalDate getDataCriacao() {
         return dataCriacao;
     }
 
-    public void setDataCriacao(Date dataCriacao) {
+    public void setDataCriacao(LocalDate dataCriacao) {
         this.dataCriacao = dataCriacao;
     }
 
-    public Date getDataTermino() {
+    public LocalDate getDataTermino() {
         return dataTermino;
     }
 
-    public void setDataTermino(Date dataTermino) {
+    public void setDataTermino(LocalDate dataTermino) {
         this.dataTermino = dataTermino;
     }
 }

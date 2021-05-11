@@ -21,12 +21,8 @@
                     <input type="text" th:field="*{titulo}" class="form-control mb-4 col-4" >
                     <input type="text" th:field="*{descricao}" class="form-control mb-4 col-4">
                     <input type="text" th:field="*{tipo}" class="form-control mb-4 col-4">
-                    <input  type="text" name="date"
-                            th:value="${project.dataCriacao}?${#dates.format(project.dataCriacao, 'dd/MM/yyyy')}:''"
-                            placeholder="dd/mm/yyyy"  id="pickyDate" class="form-control mb-4 col-4"/>
-                    <input  type="text" name="date"
-                            th:value="${project.dataTermino}?${#dates.format(project.dataTermino, 'dd/MM/yyyy')}:''"
-                            placeholder="dd/mm/yyyy"  id="pickyDate2" class="form-control mb-4 col-4"/>
+                    <input type="date" th:field="*{dataCriacao}" class="form-control mb-4 col-4">
+                    <input type="date" th:field="*{dataTermino}" class="form-control mb-4 col-4">
 
                     <button type="submit" class="btn btn-info col-2"> Salvar Projeto </button>
                 </form>
