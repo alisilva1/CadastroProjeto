@@ -22,10 +22,6 @@ public class ProjectController {
     private ProjectImpService projectImpService;
 
         /*   GET -> apresentar dados no datalist */
-    /////////////////////////////////////////////////
-    /////////////////////////////////////////////////
-
-    //Função para quando Thymeleaf estiver implementado
     @GetMapping("/projeto")
     public ModelAndView Listar() {
         ModelAndView modelAndView = new ModelAndView("ListaProjeto");
@@ -36,15 +32,7 @@ public class ProjectController {
         return modelAndView;
     }
 
-    /////////////////////////////////////////////////
-    /////////////////////////////////////////////////
-
-
-
-
-    /*   POST -> Atualiza a chave */
-    /////////////////////////////////////////////////
-    /////////////////////////////////////////////////
+    /*   PUT -> Atualiza a chave */
 
     //Pelo ListaProjeto.html fiz um apontamento para ao clicar em Update irá para o HTML atualiza_projeto
     //Função responsável por pegar o objeto selecionado e levar para a próxima tela de update
@@ -61,13 +49,9 @@ public class ProjectController {
         //Envia para o servidor o Objeto e pagina necessários
         return modelAndView;
     }
-    /////////////////////////////////////////////////
-    /////////////////////////////////////////////////
 
 
-    /*   PUT-> Salva a chave */
-    /////////////////////////////////////////////////
-    /////////////////////////////////////////////////
+    /*   POST-> Salva a chave */
     //Post usado no projeto
     @PostMapping("/projeto")
     public RedirectView save(Project project){
@@ -75,14 +59,10 @@ public class ProjectController {
         new ResponseEntity<>(projectImpService.save(project), HttpStatus.OK);
         return new RedirectView("/projeto");
     }
-    /////////////////////////////////////////////////
-    /////////////////////////////////////////////////
 
 
 
              /*   DELETE -> Deleta a chave */
-    /////////////////////////////////////////////////
-    /////////////////////////////////////////////////
     @GetMapping("/deleteNew/{id}")
     public RedirectView deleteProjeto(@PathVariable (value="id")Integer id){
         //Deleta chave
