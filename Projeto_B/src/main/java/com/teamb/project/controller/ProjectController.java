@@ -28,7 +28,7 @@ public class ProjectController {
         modelAndView.addObject("titulo", projectImpService.findAll());
 
         //Esse comando é usado para inserir objeto no listar
-        modelAndView.addObject(new Project());
+        //modelAndView.addObject(new Project());
         return modelAndView;
     }
 
@@ -52,6 +52,13 @@ public class ProjectController {
 
 
     /*   POST-> Salva a chave */
+    @GetMapping("/AdicionarProjeto")
+    public ModelAndView telaAdicionaProjeto(){
+        ModelAndView modelAndView = new ModelAndView("AdicionaProjeto.html");
+        modelAndView.addObject(new Project());
+        return modelAndView;
+    }
+
     //Post usado no projeto
     @PostMapping("/projeto")
     public RedirectView save(Project project){
