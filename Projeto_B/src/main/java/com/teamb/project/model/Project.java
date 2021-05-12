@@ -1,6 +1,7 @@
 package com.teamb.project.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,12 +36,12 @@ public class Project {
     @Column(name = "tipo",length = 10)
     private String tipo;
 
-    //@JsonFormat(pattern="dd/MM/yyyy")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name = "data_criacao")
     private LocalDate dataCriacao;
 
     //Inseri o padrão de data pelo Json Format
-    //@JsonFormat(pattern="dd/MM/yyyy")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name = "data_termino")
     private LocalDate dataTermino;
 

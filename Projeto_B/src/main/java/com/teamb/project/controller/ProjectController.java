@@ -71,12 +71,12 @@ public class ProjectController {
     //Post usado no projeto
     @PostMapping("/projeto")
     public RedirectView save(Project project){
-        this.projectImpService.save(project);
+         //this.projectImpService.save(project);
+        new ResponseEntity<>(projectImpService.save(project), HttpStatus.OK);
         return new RedirectView("/projeto");
     }
     /////////////////////////////////////////////////
     /////////////////////////////////////////////////
-
 
 
 
@@ -107,7 +107,7 @@ public class ProjectController {
     /*   Teste */
     /////////////////////////////////////////////////
 /*
-    //Função para testar: Retorna todos os itens
+    //Função para testar: Retorna todos os itenew ResponseEntity<>(projectImpService.save(project), HttpStatus.OK);ns
     @GetMapping("/projetoTeste")
     public List<Project> listAll() {
         return projectImpService.findAll();

@@ -50,7 +50,6 @@
 			<artifactId>thymeleaf-extras-java8time</artifactId>
 		</dependency>
 
-
 	</dependencies>
 
 	<build>
