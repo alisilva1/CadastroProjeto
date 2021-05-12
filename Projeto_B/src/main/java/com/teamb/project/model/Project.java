@@ -56,6 +56,10 @@ public class Project {
         return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getTitulo() {
         return titulo;
     }
