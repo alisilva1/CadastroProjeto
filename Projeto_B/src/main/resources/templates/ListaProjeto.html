@@ -50,19 +50,17 @@
               <td th:text="${{project.dataCriacao}}"></td>
               <td th:text="${{project.dataTermino}}"></td>
               <td>
-                <a th:href="@{/telaUpdateProjeto/{id}(id=${project.id})}" class="btn- btn-primary"
+                <a th:href="@{/telaUpdateProjeto/{id}(id=${project.id})}" class="btn btn-primary"
                   >Update</a
                 >
-                <a th:href="@{/deleteNew/{id}(id=${project.id})}" class="btn- btn-danger">Delete</a>
+                <a th:href="@{/deleteNew/{id}(id=${project.id})}" class="btn btn-danger">Delete</a>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
       <!-- Fim da Lista -->
-      <a th:href="@{/AdicionarProjeto}">
-        <button>Adicionar Novo</button>
-      </a>
+      <a th:href="@{/AdicionarProjeto}" class="btn btn-outline-primary">Adicionar Novo</a>
     </div>
   </body>
 </html>

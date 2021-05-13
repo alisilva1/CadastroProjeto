@@ -15,7 +15,7 @@
             <h2>Atualizar projeto</h2>
             <!-- Form 2 -->
             <!-- th:action indica o processo que vai salvar o dado /projeto post mapp -->
-                <form action ="#" th:action= "@{/projeto}" th:object="${project}" method="POST">
+                <form action ="#" th:action= "@{/projeto}" th:object="${project}" method="POST" style="display: flex; flex-direction: column; align-items: center; ">
 
                     <input type="hidden" th:field="*{id}"/>
                     <input type="text" th:field="*{titulo}" class="form-control mb-4 col-4" >
