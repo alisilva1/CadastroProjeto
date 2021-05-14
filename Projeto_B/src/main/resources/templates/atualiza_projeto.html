@@ -18,11 +18,26 @@
                 <form action ="#" th:action= "@{/projeto}" th:object="${project}" method="POST" style="display: flex; flex-direction: column; align-items: center; ">
 
                     <input type="hidden" th:field="*{id}"/>
-                    <input type="text" th:field="*{titulo}" class="form-control mb-4 col-4" >
-                    <input type="text" th:field="*{descricao}" class="form-control mb-4 col-4">
-                    <input type="text" th:field="*{tipo}" class="form-control mb-4 col-4">
-                    <input type="date" th:field="*{dataCriacao}" class="form-control mb-4 col-4">
-                    <input type="date" th:field="*{dataTermino}" class="form-control mb-4 col-4">
+
+                    <label for="nomeTitulo" style="align-self: flex-start;">Titulo:</label>
+                    <input type="text" th:field="*{titulo}" id="nomeTitulo" class="form-control mb-4 col-4" required>
+
+                    <label for="nomeDescricao" style="align-self: flex-start;">Descrição:</label>
+                    <input type="text" th:field="*{descricao}" id="nomeDescricao" class="form-control mb-4 col-4">
+                    <!--<input type="text" th:field="*{tipo}" class="form-control mb-4 col-4"> -->
+
+                    <label for="selecaoTipo" style="align-self: flex-start;">Escolha um Projeto:</label>
+                    <select th:field="*{tipo}" id="selecaoTipo" style="align-self: flex-start;" class="form-control mb-4 col-4 bg-white">
+                        <option th:value="Ensino" th:text="Ensino"></option>
+                        <option th:value="Pesquisa" th:text="Pesquisa"></option>
+                        <option th:value="Extensão" th:text="Extensão"></option>
+                    </select>
+
+                    <label for="dataIni" style="align-self: flex-start;">Data inicio:</label>
+                    <input type="date" th:field="*{dataCriacao}" id="dataIni" class="form-control mb-4 col-4">
+
+                    <label for="dataFim" style="align-self: flex-start;">Data termino:</label>
+                    <input type="date" th:field="*{dataTermino}" id="dataFim" class="form-control mb-4 col-4">
 
                     <button type="submit" class="btn btn-info col-2"> Salvar Projeto</button>
                 </form>
