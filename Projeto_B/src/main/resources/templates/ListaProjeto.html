@@ -46,7 +46,7 @@
             <tr th:each="project : ${titulo}">
               <td th:text="${project.titulo}"></td>
               <td th:text="${project.descricao}"></td>
-              <td th:text="${project.tipo}"></td>
+              <td th:text="${project.tipo.valor}"></td>
               <td th:text="${{project.dataCriacao}}"></td>
               <td th:text="${{project.dataTermino}}"></td>
               <td>

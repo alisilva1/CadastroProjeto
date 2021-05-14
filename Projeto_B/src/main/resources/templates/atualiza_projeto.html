@@ -28,9 +28,9 @@
 
                     <label for="selecaoTipo" style="align-self: flex-start;">Escolha um Projeto:</label>
                     <select th:field="*{tipo}" id="selecaoTipo" style="align-self: flex-start;" class="form-control mb-4 col-4 bg-white">
-                        <option th:value="Ensino" th:text="Ensino"></option>
-                        <option th:value="Pesquisa" th:text="Pesquisa"></option>
-                        <option th:value="Extensão" th:text="Extensão"></option>
+                        <option th:each="tipoOpt : ${T(com.teamb.project.model.Project.Tipo).values()}"
+                                th:value="${tipoOpt}"
+                                th:text="${tipoOpt.valor}"></option>
                     </select>
 
                     <label for="dataIni" style="align-self: flex-start;">Data inicio:</label>

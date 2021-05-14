@@ -1,17 +1,9 @@
 package com.teamb.project.model;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
-
-import static javax.persistence.TemporalType.DATE;
 
 @Entity
 @Table(name="tbl_project", schema = "db_project")
@@ -33,8 +25,20 @@ public class Project {
     @Column(name = "descricao",length = 100)
     private String descricao;
 
-    @Column(name = "tipo",length = 10)
-    private String tipo;
+    @Column(name = "tipo")
+    private Tipo tipo;
+
+    public enum Tipo{
+        ENSINO("Ensino"), PESQUISA("Pesquisa"), EXTENSAO("Extensão");
+
+        String valor;
+        Tipo(String valor){
+            this.valor = valor;
+        }
+        public String getValor(){
+            return valor;
+        }
+    }
 
     @DateTimeFormat(pattern="yyyy-MM-dd")
     @Column(name = "data_criacao")
@@ -76,11 +80,11 @@ public class Project {
         this.descricao = descricao;
     }
 
-    public String getTipo() {
+    public Tipo getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(Tipo tipo) {
         this.tipo = tipo;
     }
 
