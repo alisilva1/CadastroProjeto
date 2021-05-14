@@ -23,22 +23,31 @@
         <h2>Adicionar projeto</h2>
         <form class="form-inline" method="POST" th:object="${project}" th:action="@{/projeto}" style="display: flex; justify-content: center;">
           <div class="form-group" style="display: flex; flex-direction: column; align-items: center;">
-            <input type="text" class="form-control" placeholder="Titulo" th:field="*{titulo}" />
+            <input type="text" class="form-control" placeholder="Titulo" th:field="*{titulo}" required/>
             <input
               type="text"
+              required
               class="form-control"
               placeholder="Descricao"
               th:field="*{descricao}"
             />
-            <input type="text" class="form-control" placeholder="Tipo" th:field="*{tipo}" />
+            <select th:field="*{tipo}" id="selecaoTipo" style="align-self: flex-start;" class="form-control mb-4 col-4 bg-white" required>
+              <option value="" hidden selected ></option>
+              <option value="" disabled> Escolha uma opção</option>
+              <option th:value="Ensino" th:text="Ensino"></option>
+              <option th:value="Pesquisa" th:text="Pesquisa"></option>
+              <option th:value="Extensão" th:text="Extensão"></option>
+            </select>
             <input
               type="date"
+              required
               class="form-control"
               placeholder="Data de Criacao"
               th:field="*{dataCriacao}"
             />
             <input
               type="date"
+              required
               class="form-control"
               placeholder="Data de Termino"
               th:field="*{dataTermino}"
