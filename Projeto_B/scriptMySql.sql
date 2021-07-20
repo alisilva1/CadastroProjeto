@@ -12,13 +12,6 @@ CREATE TABLE `tbl_project` (
    PRIMARY KEY (`id`)
  ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
  
- insert into tbl_project (titulo,descricao,tipo,dataCriacao,dataTermino) 
- values ('Alfa','Topson','Trabalho','07/05/1990','09/02/1996');
- 
- INSERT INTO `db_project`.`tbl_project` (`titulo`, `descricao`, `tipo`, `dataCriacao`, `dataTermino`) 
- VALUES ('Beta', 'Jobson', 'Prova', '2021-06-20','2021-06-29');
-
- INSERT INTO tbl_project (titulo) value ('Beta');
- 
- select * from tbl_project;
-truncate table tbl_project;
+ALTER TABLE `db_project`.`tbl_project` 
+CHANGE COLUMN `dataCriacao` `data_criacao` DATE NULL DEFAULT NULL ,
+CHANGE COLUMN `dataTermino` `data_termino` DATE NULL DEFAULT NULL ;
